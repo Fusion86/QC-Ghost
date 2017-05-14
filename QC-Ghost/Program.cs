@@ -9,9 +9,17 @@ namespace QC_Ghost
         [STAThread]
         static void Main(string[] args)
         {
+            string bethesdaNetLauncherPath = "BethesdaNetLauncher.exe"; // Relative
+
+            if (args.Length > 0)
+                bethesdaNetLauncherPath = args[0]; // Makes debuggin easier and allows users to place the exe wherever they want
+
             ProcessStartInfo startInfo = new ProcessStartInfo();
-            startInfo.FileName = "BethesdaNetLauncher.exe";
+            startInfo.FileName = bethesdaNetLauncherPath;
             startInfo.Arguments = "bethesdanet://run/11"; // 11 = Quake Champions
+            startInfo.CreateNoWindow = true;
+            startInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            startInfo.UseShellExecute = false;
             Process.Start(startInfo);
 
             DateTime startedAt = DateTime.Now;
