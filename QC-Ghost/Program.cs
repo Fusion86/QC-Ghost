@@ -16,7 +16,7 @@ namespace QC_Ghost
 
             DateTime startedAt = DateTime.Now;
 
-            // Wait for Quake Champions to launch or just contiune after 20 seconds have passed
+            // Wait for Quake Champions to launch or just continue after 20 seconds have passed
             while (!IsQuakeChampionsRunning && (DateTime.Now - startedAt).TotalSeconds < 20)
                 Thread.Sleep(1000);
 
